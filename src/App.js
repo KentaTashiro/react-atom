@@ -1,7 +1,10 @@
+import { BrowserRouter } from "react-router-dom";
 import { PrimaryButton } from "./components/atoms/button/PrimaryButton";
 import { SecondaryButton } from "./components/atoms/button/SecondaryButton";
 import { SearchInput } from "./components/molecules/SearchInput";
 import { UserCard } from "./components/organisms/user/UserCard";
+import { HeaderOnly } from "./components/templates/HeaderOnly";
+import { DefaultLayout } from "./components/templates/DefaultLayout";
 import "./styles.css";
 
 export default function App() {
@@ -16,13 +19,15 @@ export default function App() {
     website: "https://www.youtube.com/"
   };
   return (
-    <div className="App">
-      <PrimaryButton>Primary</PrimaryButton>
-      <SecondaryButton>Secondary</SecondaryButton>
-      <br />
-      <SearchInput></SearchInput>
-      <br />
-      <UserCard user={user} />
-    </div>
+    <BrowserRouter>
+      <DefaultLayout>
+        <PrimaryButton>Primary</PrimaryButton>
+        <SecondaryButton>Secondary</SecondaryButton>
+        <br />
+        <SearchInput></SearchInput>
+        <br />
+        <UserCard user={user} />
+      </DefaultLayout>
+    </BrowserRouter>
   );
 }
